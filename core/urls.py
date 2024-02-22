@@ -20,5 +20,8 @@ from django.urls import path,include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("account.urls")),
+    path("geofence",include("geofence.urls")),
+    path("employee",include("employee.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("facedetaction",include("facedetaction.urls")),
 ]

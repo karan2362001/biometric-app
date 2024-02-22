@@ -39,8 +39,20 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "account",'tailwind','theme','django_browser_reload',
+     'rest_framework',
+    'rest_framework.authtoken',
+    'geofence','employee','facedetaction',
+
     
 ]
+
+AUTH_USER_MODEL = 'account.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 
 
