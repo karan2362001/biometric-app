@@ -6,6 +6,9 @@ class adminlocation(models.Model):
     longitude = models.FloatField()
     radius= models.FloatField()
     
+    def __str__(self) -> str:
+        return self.radius
+    
 
 
 

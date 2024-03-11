@@ -6,9 +6,9 @@ from rest_framework.authtoken.models import Token
 
 class User(AbstractUser):
     ROLE_CHOICES = (
-        ('superadmin', 'Superadmin'),
-        ('admin', 'Admin'),
-        ('employee', 'Employee'),
+        ('1', 'Superadmin'),
+        ('2', 'Admin'),
+        ('3', 'Employee'),
 
     )
 

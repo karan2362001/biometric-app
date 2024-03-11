@@ -9,30 +9,9 @@
 </head>
 <body>
     <h1>Live Video Stream</h1>
-    <video id="live-stream" width="640" height="480" autoplay></video>
+    <video id="live-stream" src="{% url 'live_feed1%}" width="640" height="480" autoplay></video>
     <script>
-        $(document).ready(function() {
-            var videoElement = document.getElementById('live-stream');
-
-            function updateVideoStream() {
-                $.ajax({
-                    url: '/facedetaction/live_feed1/',
-                    method: 'GET',
-                    success: function(data) {
-                        videoElement.src = 'data:image/jpeg;base64,' + data.image;
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error fetching video stream:', error);
-                    },
-                    complete: function() {
-                        // Schedule next update after a delay
-                        setTimeout(updateVideoStream, 100); // Adjust the delay as needed
-                    }
-                });
-            }
-
-            updateVideoStream(); // Start fetching the video stream
-        });
+        
     </script>
 </body>
 </html>

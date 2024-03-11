@@ -14,7 +14,10 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,9 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "account",'tailwind','theme','django_browser_reload',
-     'rest_framework',
+    'rest_framework',
     'rest_framework.authtoken',
-    'geofence','employee','facedetaction',
+    'geofence','employee','facedetaction','organization'
 
     
 ]
@@ -94,7 +97,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -158,3 +161,9 @@ INTERNAL_IPS = [
 
 
 NPM_BIN_PATH = 'npm.cmd'
+AUTH_USER_MODEL = 'account.User'
+AUTHENTICATION_BACKENDS = [
+    #'api.authentication.CustomUserAuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Include default backend for fallback
+    # Add other authentication backends if needed
+]
